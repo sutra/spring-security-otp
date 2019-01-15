@@ -13,9 +13,8 @@ public class OTPAuthenticationToken implements Authentication {
 
 	private Authentication authentication;
 
-	public OTPAuthenticationToken(String oneTimePassword, Authentication authentication) {
+	public OTPAuthenticationToken(String oneTimePassword) {
 		this.oneTimePassword = oneTimePassword;
-		this.authentication = authentication;
 	}
 
 	public OTPAuthenticationToken(Authentication authentication) {
