@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Spring Security Example</title>
+</head>
+<body>
+	<div th:if="${param.error}">Invalid one-time password.</div>
+	<form th:action="@{/login/otp}" method="post">
+		<div>
+			<label>One-time password: <input type="text" name="otp" /></label>
+		</div>
+		<div>
+			<input type="submit" value="Sign In" />
+		</div>
+	</form>
+	<hr>
+	or, login via <a th:href="@{/login}">username/password pair</a>.
+</body>
+</html>
