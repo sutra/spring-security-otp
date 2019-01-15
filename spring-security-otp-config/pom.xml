@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.oxerr.spring.security</groupId>
 		<artifactId>spring-security-otp</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>spring-security-otp-config</artifactId>
 	<name>Spring Security OTP Config</name>

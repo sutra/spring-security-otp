@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.oxerr.spring.security</groupId>
 		<artifactId>spring-security-otp-samples</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>spring-security-otp-samples-helloworld</artifactId>
 	<name>Spring Security OTP Samples Hello World</name>
