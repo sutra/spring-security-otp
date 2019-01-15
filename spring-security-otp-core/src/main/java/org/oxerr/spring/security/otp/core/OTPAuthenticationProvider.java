@@ -21,7 +21,7 @@ public class OTPAuthenticationProvider implements AuthenticationProvider,
 		final OTPAuthenticationToken otpAuthenticationToken = (OTPAuthenticationToken) authentication;
 		final String oneTimePassword = otpAuthenticationToken.getOneTimePassword();
 		final Authentication auth = this.otpAuthenticationService.loadAuthenticationByOneTimePassword(oneTimePassword);
-		return auth != null ? new OTPAuthenticationToken(auth) : otpAuthenticationToken;
+		return auth != null ? new OTPAuthenticationToken(auth) : null;
 	}
 
 	@Override

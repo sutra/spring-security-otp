@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div th:if="${param.error}">Invalid one-time password.</div>
-	<form th:action="@{/login/otp}" method="post">
+	<form th:action="@{/hello}" method="get">
 		<div>
 			<label>One-time password: <input type="text" name="otp" /></label>
 		</div>
