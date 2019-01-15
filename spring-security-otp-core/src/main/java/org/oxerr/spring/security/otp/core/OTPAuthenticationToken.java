@@ -2,10 +2,8 @@ package org.oxerr.spring.security.otp.core;
 
 import java.util.Collection;
 
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 
 public class OTPAuthenticationToken implements Authentication {
 
@@ -17,9 +15,6 @@ public class OTPAuthenticationToken implements Authentication {
 
 	public OTPAuthenticationToken(String oneTimePassword) {
 		this.oneTimePassword = oneTimePassword;
-		this.authentication = new AnonymousAuthenticationToken(
-			"key", "anonymous",
-			AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS"));
 	}
 
 	public OTPAuthenticationToken(Authentication authentication) {
