@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.oxerr.spring.security.otp.core.OTPAuthenticationToken;
+import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,27 +29,34 @@ public class OTPAuthenticationFilter
 
 	@Override
 	protected boolean requiresAuthentication(HttpServletRequest request, HttpServletResponse response) {
-		if (!super.requiresAuthentication(request, response)) {
-			return false;
-		}
-
-		final String oneTimePassword = obtainOneTimePassword(request);
-		return oneTimePassword != null && oneTimePassword.length() > 0;
+		final Authentication auth;
+		return super.requiresAuthentication(request, response)
+			&& ((auth = SecurityContextHolder.getContext().getAuthentication()) == null || !auth.isAuthenticated())
+			&& obtainOneTimePassword(request) != null;
 	}
 
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request,
 			HttpServletResponse response) throws AuthenticationException {
 		final String oneTimePassword = obtainOneTimePassword(request);
-		final OTPAuthenticationToken authRequest = new OTPAuthenticationToken(
-			oneTimePassword, SecurityContextHolder.getContext().getAuthentication());
+		final OTPAuthenticationToken authRequest = new OTPAuthenticationToken(oneTimePassword);
 		return this.getAuthenticationManager().authenticate(authRequest);
 	}
 
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {
-		super.successfulAuthentication(request, response, chain, authResult);
+
+		SecurityContextHolder.getContext().setAuthentication(authResult);
+
+		getRememberMeServices().loginSuccess(request, response, authResult);
+
+		// Fire event
+		if (this.eventPublisher != null) {
+			eventPublisher.publishEvent(new InteractiveAuthenticationSuccessEvent(
+					authResult, this.getClass()));
+		}
+
 		chain.doFilter(request, response);
 	}
 
