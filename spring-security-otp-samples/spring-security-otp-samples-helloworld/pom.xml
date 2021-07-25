@@ -15,7 +15,7 @@
 	<name>Spring Security OTP Samples Hello World</name>
 	<description>Spring Security OTP Samples Hello World.</description>
 	<properties>
-		<spring-boot.version>2.5.2</spring-boot.version>
+		<spring-boot.version>2.5.3</spring-boot.version>
 	</properties>
 	<build>
 		<plugins>
