@@ -1,5 +1,6 @@
-package org.oxerr.spring.security.otp.core;
+package org.oxerr.spring.security.otp.authentication;
 
+import org.oxerr.spring.security.otp.core.OTPAuthenticationService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;

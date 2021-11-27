@@ -1,4 +1,4 @@
-package org.oxerr.spring.security.otp.core;
+package org.oxerr.spring.security.otp.authentication;
 
 import java.util.Collection;
 

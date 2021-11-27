@@ -1,8 +1,8 @@
 package org.oxerr.spring.security.otp.config.annotation.web.configurers;
 
-import org.oxerr.spring.security.otp.core.OTPAuthenticationProvider;
+import org.oxerr.spring.security.otp.authentication.OTPAuthenticationProvider;
 import org.oxerr.spring.security.otp.core.OTPAuthenticationService;
-import org.oxerr.spring.security.otp.web.OTPAuthenticationFilter;
+import org.oxerr.spring.security.otp.web.authentication.OTPAuthenticationFilter;
 import org.springframework.security.config.annotation.web.HttpSecurityBuilder;
 import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;

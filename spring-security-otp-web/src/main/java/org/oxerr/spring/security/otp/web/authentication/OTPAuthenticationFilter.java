@@ -1,4 +1,4 @@
-package org.oxerr.spring.security.otp.web;
+package org.oxerr.spring.security.otp.web.authentication;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.oxerr.spring.security.otp.core.OTPAuthenticationToken;
+import org.oxerr.spring.security.otp.authentication.OTPAuthenticationToken;
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
