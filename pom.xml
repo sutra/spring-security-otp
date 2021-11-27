@@ -28,8 +28,29 @@
 		<module>spring-security-otp-web</module>
 		<module>spring-security-otp-config</module>
 		<module>spring-security-otp-samples</module>
+		<module>spring-security-otp-coverage</module>
 	</modules>
 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
